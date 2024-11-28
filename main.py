@@ -101,6 +101,8 @@ class MainWindow(QMainWindow):
         self.title_text = title
         self.subtitle_text = subtitle
         self.contact_text = contact
+
+        print(self.contact_text)
         
         self.setup_ui()
 
@@ -130,27 +132,20 @@ class MainWindow(QMainWindow):
         self.setPalette(palette)
         
         title = QLabel(self.title_text, self)
-        subtitle = QLabel(self.subtitle_text, self)
-        info = QLabel(f"Contact: {self.contact_text}", self)
-        
-        # Set font to make it bold and large
         title_font = QFont("Arial", 200, QFont.Bold)
+        title.setStyleSheet("color: white;")
         title.setFont(title_font)
 
-        info_font = QFont("Arial", 25, QFont.Thin)
-        info.setFont(info_font)
-
+        subtitle = QLabel(self.subtitle_text, self)
         subtitle_font = QFont("Arial", 50, QFont.Thin)
-        subtitle.setFont(subtitle_font)
-        
-        # Set the text color to white
-        title.setStyleSheet("color: white;")
         subtitle.setStyleSheet("color: white;")
-        info.setStyleSheet("color: white;")
-        
-        # Center the label in the window
-        title.setAlignment(Qt.AlignCenter)
-        info.setAlignment(Qt.AlignCenter)
+        subtitle.setFont(subtitle_font)
+
+        if (self.contact_text):
+            info = QLabel(f"Contact: {self.contact_text}", self)
+            info_font = QFont("Arial", 25, QFont.Thin)
+            info.setStyleSheet("color: white;")
+            info.setFont(info_font)
 
         self.time_label = QLabel("Time Elapsed: 00:00:00", self)
         self.time_label.setFont(QFont("Arial", 20))
@@ -164,14 +159,14 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(central_widget)
         layout.addStretch()
 
-        layout.addWidget(title)
+        layout.addWidget(title, alignment=Qt.AlignCenter)
         layout.addWidget(subtitle, alignment=Qt.AlignCenter)
         layout.addStretch()
         layout.addWidget(self.time_label, alignment=Qt.AlignCenter)
         layout.addWidget(loading_circle, alignment=Qt.AlignCenter)
 
         if (self.contact_text):
-            layout.addWidget(info)
+            layout.addWidget(info, alignment=Qt.AlignCenter)
         layout.addStretch()
 
         central_widget.setLayout(layout)
