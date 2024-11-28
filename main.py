@@ -1,9 +1,6 @@
 import sys
 import subprocess
 import importlib
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QMessageBox
-from PySide6.QtCore import Qt, QTimer, QTime
-from PySide6.QtGui import QPalette, QColor, QFont, QShortcut, QPainter, QPen
 import os
 
 # Ensure required modules are installed
@@ -13,6 +10,10 @@ for module in MODULES:
         importlib.import_module(module)
     except ImportError:
         subprocess.check_call([sys.executable, "-m", "pip", "install", module])
+
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QMessageBox
+from PySide6.QtCore import Qt, QTimer, QTime
+from PySide6.QtGui import QPalette, QColor, QFont, QShortcut, QPainter, QPen
 
 class LoaderWidget(QWidget):
     def __init__(self, accent):
