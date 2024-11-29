@@ -19,7 +19,7 @@ echo "Copying $SCRIPT_DIR to $TARGET_DIR..."
 cp -r "$SCRIPT_DIR" "$TARGET_DIR"
 
 ALIAS_NAME="splash"
-ALIAS_COMMAND="$TARGET_DIR/ncca-rendersplash/launch.sh 'RENDERING' 'Please do not touch!' 'username@bournemouth.ac.uk'"
+ALIAS_COMMAND="$TARGET_DIR/splash/launch.sh 'RENDERING' 'Please do not touch!' 'username@bournemouth.ac.uk'"
 
 # Check if the alias already exists in .bashrc
 if ! grep -q "alias $ALIAS_NAME=" "$HOME/.bashrc"; then

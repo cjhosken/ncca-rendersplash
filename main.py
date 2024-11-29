@@ -98,7 +98,7 @@ class LoaderWidget(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self, title="RENDERING", subtitle="Please do not touch!", contact=""):
         super().__init__()
-        self.setWindowTitle("NCCA RenderSplash")
+        self.setWindowTitle("Splash!")
         self.title_text = title
         self.subtitle_text = subtitle
         self.contact_text = contact
